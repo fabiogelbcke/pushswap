@@ -12,6 +12,17 @@
 
 #include "ps.h"
 
+void			print_list(t_no *list)
+{
+	while (list)
+	{
+		ft_putnbr(list->val);
+		ft_putchar(' ');
+		list = list->next;
+	}
+	ft_putchar('\n');
+}
+
 int			is_number(char *c)
 {
 	while (*c)
@@ -29,7 +40,7 @@ int			is_double(int value, t_no *list)
 {
 	while (list)
 	{
-		if ((list->value) == value)
+		if ((list->val) == value)
 			return (1);
 		list = list->next;
 	}
@@ -42,7 +53,7 @@ t_no		*pushback(t_no *list, int value)
 
 	new = malloc(sizeof(t_no));
 	new->next = list;
-	new->value = value;
+	new->val = value;
 
 	return (new);
 }
@@ -51,9 +62,11 @@ int			main(int ac, char **av)
 {
 	t_no	*list;
 	int		i;
+	int		len;
 
 	list = NULL;
 	i = ac - 1;
+	len = 0;
 	if (ac == 1)
 	{
 		ft_putstr("Usage: ./push_swap [numbers]");
@@ -64,12 +77,12 @@ int			main(int ac, char **av)
 		if (is_number(av[i]) && !is_double(ft_atoi(av[i]), list))
 			list = pushback(list, ft_atoi(av[i]));
 		else
-		{
-			ft_putstr("Error\n");
-			return (1);
-		}
+			return (write(1, "Error\n", 1)) ? (1) : (0);
+		len++;
 		i--;
 	}
-	push_swap(list);
+	push_swap(list, NULL, len, 0);
+	ft_putendl("");
+	print_list(list);
 	return (1);
 }
