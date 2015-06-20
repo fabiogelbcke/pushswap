@@ -17,13 +17,13 @@ Le jeu est constitué de 2 piles nommées a et b (si vous savez pas ce qu’est 
 ◦ sa : swap a - intervertit les 2 premiers éléments au sommet de la pile a.
 (ne fait rien s’il n’y en a qu’un ou aucun).
 ◦ sb : swap b - intervertit les 2 premiers éléments au sommet de la pile b. (ne fait rien s’il n’y en a qu’un ou aucun).
-◦ ss:saetsbenmêmetemps.
-◦ pa:pusha-prendlepremierélémentausommetdebetlemetsura.
+◦ ss : sa et sb en même temps.
+◦ pa : pusha - prend le premier élément au sommet de b et le met sur a.
 (ne fait rien si b est vide).
-◦ pb:pushb-prendlepremierélémentausommetdeaetlemetsurb. (ne fait rien si a est vide).
+◦ pb : pushb - prend le premier élément au sommet de a et le met sur b. (ne fait rien si a est vide).
 ◦ ra : rotate a - décale d’une position tous les élements de la pile a. (vers le haut, le premier élément devient le dernier).
 ◦ rb : rotate b - décale d’une position tous les élements de la pile b. (vers le haut, le premier élément devient le dernier).
-◦ rr:raetrbenmemetemps.
+◦ rr:ra et rb en meme temps.
 ◦ rra : reverse rotate a
 (vers le bas, le dernier élément devient le premier).
 ◦ rrb : reverse rotate b
